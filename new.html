@@ -3,6 +3,63 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <style>
+        /* 新增按钮样式 */
+        .start-btn {
+          position: absolute;
+          z-index: 50;
+          left: 50%;
+          bottom: 80%; /* 控制垂直位置 */
+          transform: translateX(-50%);
+          
+          /* 按钮样式 */
+          display: flex;
+          align-items: center;
+          padding: 15px 30px;
+          font-size: 24px;
+          border-radius: 50px;
+          border: 2px solid #fff;
+          background: linear-gradient(145deg, #ff6b6b, #ff8787);
+          color: white;
+          cursor: pointer;
+          transition: all 0.3s;
+          box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        /* 鼠标悬停效果 */
+        .start-btn:hover {
+          transform: translateX(-50%) scale(1.05);
+          box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        /* 按下效果 */
+        .start-btn:active {
+          transform: translateX(-50%) scale(0.95);
+        }
+
+        /* 图标样式 */
+        .btn-icon {
+          font-size: 1.5em;
+          margin-left: 10px;
+          transition: transform 0.3s;
+        }
+
+        /* 添加图标动画 */
+        .start-btn:hover .btn-icon {
+          transform: translateX(5px);
+        }
+
+        /* 手机端适配 */
+        @media (max-width: 480px) {
+          .start-btn {
+            padding: 12px 24px;
+            font-size: 20px;
+            bottom: 15%;
+          }
+          
+          .btn-icon {
+            font-size: 1.3em;
+          }
+        }
         /* 全屏样式 */
         html, body, .container {
             width: 100%;
@@ -41,7 +98,11 @@
         <img id="rock" src="rock.png" class="rps-image">
         <img id="scissors" src="scissors.png" class="rps-image">
         <img id="paper" src="paper.png" class="rps-image">
-        <button id="startBtn" style="position:absolute; z-index:10">开始游戏</button>
+        <!-- 修改后 -->
+        <button id="startBtn" class="start-btn">
+            <span class="btn-text">开始游戏</span>
+            <span class="btn-icon">▶️</span>
+        </button>
     </div>
 
     <script>
